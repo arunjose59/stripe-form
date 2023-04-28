@@ -21,7 +21,7 @@ let emailAddress = "";
 // Fetches a payment intent and captures the client secret
 async function initialize() {
   const clientSecret =
-    "pi_3N1oQ6JvSEcHrCnh1gtOjZNV_secret_3YvAbJVC8kEeH6IdLYGQ7wqAq";
+    "pi_3N1oy7JvSEcHrCnh1TMwtybo_secret_Q6QzYjOBANmrSw89t64MbGKzQ";
 
   const appearance = {
     theme: "stripe",
