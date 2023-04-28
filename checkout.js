@@ -65,6 +65,7 @@ async function handleSubmit(e) {
     window.location.href = "http://www.google.com?payment_intent_status=failed";
     showMessage(error.message);
   } else {
+     window.location.href = "http://www.google.com?payment_intent_status=failed";
     showMessage("An unexpected error occurred.");
   }
 
