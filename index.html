@@ -12,25 +12,35 @@
   <body>
     <!-- Display a payment form -->
     <form id="payment-form">
-      <label>First Name</label>
+      <div class="amountContainer">
+        <label class="formLabel">Amount</label>
+        <span class="amount formLabel" id="currency"></span>
+        <span id="amount" class="formLabel"></span>
+      </div>
+      <label class="formLabel">First Name</label>
       <br />
-      <input type="text" id="fname" name="fname" />
-      <label class="label">Last Name</label>
+      <input
+        class="formInput"
+        type="text"
+        id="firstName"
+        name="firstName"
+        required
+      />
+      <label class="formLabel">Last Name</label>
       <br />
-      <input type="text" id="lname" name="lname" />
-      <label>Amount</label>
-      <br />
-      <input type="text" id="amount" name="amount" />
+      <input
+        class="formInput"
+        type="text"
+        id="lastName"
+        name="lastName"
+        required
+      />
       <div id="payment-element">
         <!--Stripe.js injects the Payment Element-->
       </div>
-      <!-- <label for="card-element"
-        >Credit card
-        <div id="card-element"></div>
-      </label> -->
       <button id="submit">
         <div class="spinner hidden" id="spinner"></div>
-        <span id="button-text">Pay now</span>
+        <span id="button-text">Make Payment</span>
       </button>
       <div id="payment-message" class="hidden"></div>
     </form>
