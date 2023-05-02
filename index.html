@@ -12,22 +12,23 @@
   <body>
     <!-- Display a payment form -->
     <form id="payment-form">
-      <label>First Name</label>
+      <div style="margin: 8px 0">
+        <label class="formLabel">Amount</label>
+        <span class="amount formLabel"> $5</span>
+      </div>
+      <!-- Need to replace currency with currency symbol and amount -->
+      <label class="formLabel">First Name</label>
       <br />
-      <input type="text" id="fname" name="fname" />
-      <label class="label">Last Name</label>
+      <input class="formInput" type="text" id="fname" name="fname" required />
+      <label class="formLabel">Last Name</label>
       <br />
-      <input type="text" id="lname" name="lname" />
-      <label>Amount</label>
-      <br />
-      <input type="text" id="amount" name="amount" />
+      <input class="formInput" type="text" id="lname" name="lname" required />
+      <!-- <label>Amount</label> <span></span>
+        <br />
+        <input disabled="true" type="text" id="amount" name="amount" value="5" /> -->
       <div id="payment-element">
         <!--Stripe.js injects the Payment Element-->
       </div>
-      <!-- <label for="card-element"
-        >Credit card
-        <div id="card-element"></div>
-      </label> -->
       <button id="submit">
         <div class="spinner hidden" id="spinner"></div>
         <span id="button-text">Pay now</span>
