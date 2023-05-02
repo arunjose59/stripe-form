@@ -16,7 +16,7 @@ document
 // Fetches a payment intent and captures the client secret
 async function initialize() {
   const clientSecret =
-    "pi_3N3DERJvSEcHrCnh0YydLbmL_secret_fLMY90n8lci8a5T17GKIyRX40";
+    "pi_3N3IqvJvSEcHrCnh0ZzUDd27_secret_kvDeL2DSIL2Rkm9blzlkaZHYB";
 
   const appearance = {
     theme: "stripe",
