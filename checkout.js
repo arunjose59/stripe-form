@@ -5,23 +5,18 @@ const stripe = Stripe(
   "pk_test_51Mnj6qJvSEcHrCnhXfffmy7VM5IhrlMDgGxaaegmxtufPTIQ296TQvuxPy0S2HAMnlWCvWYu048HgKjLXpbLRhFB00YbtDFOFC"
 );
 
-// The items the customer wants to buy
-const items = [{ id: "xl-tshirt" }];
-
 let elements;
 
 initialize();
-checkStatus();
 
 document
   .querySelector("#payment-form")
   .addEventListener("submit", handleSubmit);
 
-let emailAddress = "";
 // Fetches a payment intent and captures the client secret
 async function initialize() {
   const clientSecret =
-    "pi_3N1oy7JvSEcHrCnh1TMwtybo_secret_Q6QzYjOBANmrSw89t64MbGKzQ";
+    "pi_3N3DERJvSEcHrCnh0YydLbmL_secret_fLMY90n8lci8a5T17GKIyRX40";
 
   const appearance = {
     theme: "stripe",
@@ -51,8 +46,7 @@ async function handleSubmit(e) {
     elements,
     confirmParams: {
       // Make sure to change this to your payment completion page
-      return_url: `https://www.google.com/?status=success`,
-      receipt_email: emailAddress,
+      return_url: `https://www.google.com/?status=APPROVED`,
     },
   });
 
@@ -61,43 +55,14 @@ async function handleSubmit(e) {
   // your `return_url`. For some payment methods like iDEAL, your customer will
   // be redirected to an intermediate site first to authorize the payment, then
   // redirected to the `return_url`.
-  if (error.type === "card_error" || error.type === "validation_error") {
-    window.location.href = "http://www.google.com?payment_intent_status=failed";
+  // if (error.type === "card_error" || error.type === "validation_error") {
+  if (error.type === "card_error") {
     showMessage(error.message);
   } else {
-     window.location.href = "http://www.google.com?payment_intent_status=failed";
     showMessage("An unexpected error occurred.");
   }
 
   setLoading(false);
-}
-
-// Fetches the payment intent status after payment submission
-async function checkStatus() {
-  const clientSecret = new URLSearchParams(window.location.search).get(
-    "payment_intent_client_secret"
-  );
-
-  if (!clientSecret) {
-    return;
-  }
-
-  const { paymentIntent } = await stripe.retrievePaymentIntent(clientSecret);
-
-  switch (paymentIntent.status) {
-    case "succeeded":
-      showMessage("Payment succeeded!");
-      break;
-    case "processing":
-      showMessage("Your payment is processing.");
-      break;
-    case "requires_payment_method":
-      showMessage("Your payment was not successful, please try again.");
-      break;
-    default:
-      showMessage("Something went wrong.");
-      break;
-  }
 }
 
 // ------- UI helpers -------
