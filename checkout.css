@@ -4,10 +4,18 @@
 }
 
 .amount {
-  margin-left: 1rem;
+  font-size: 32px;
+  font-weight: 600;
 }
 .amountContainer {
-  margin: 8px 0;
+  background-color: rgb(127, 162, 222, 20%);
+  border-radius: 5px;
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+  justify-content: center;
+  height: 100px;
+  margin-bottom: 26px;
 }
 .formLabel {
   font-family: "-apple-system", "BlinkMacSystemFont", "Segoe UI", "Roboto",
@@ -17,19 +25,36 @@
   -webkit-font-smoothing: antialiased;
   color: #30313d;
 }
-label::after {
-  content: "*";
-  color: red;
+.inputValidation {
+  color: #df1b41;
+  font-size: 14.88px;
+  margin-bottom: 4px;
 }
 
 .formInput {
   width: 100%;
   padding: 12px 10px;
-  margin: 8px 0;
+  margin: 5px 0;
   display: inline-block;
   border: 1px solid #ccc;
-  border-radius: 4px;
+  box-shadow: 0px 1px 1px rgba(0, 0, 0, 0.03), 0px 3px 6px rgba(0, 0, 0, 0.02);
+  border-radius: 5px;
   box-sizing: border-box;
+}
+
+.formInput.error {
+  border-color: #df1b41;
+  box-shadow: 0px 1px 1px rgba(0, 0, 0, 0.03), 0px 3px 6px rgba(0, 0, 0, 0.02),
+    0 0 0 1px #df1b41;
+}
+.formInput:focus {
+  border: 1px solid rgb(132, 193, 236);
+  box-shadow: 0px 1px 1px rgba(0, 0, 0, 0.03), 0px 3px 6px rgba(0, 0, 0, 0.02),
+    0 0 0 3px hsla(210, 96%, 45%, 25%), 0 1px 1px 0 rgba(0, 0, 0, 0.08);
+}
+
+.formInput:focus-visible {
+  outline: none;
 }
 
 body {
@@ -50,7 +75,7 @@ form {
   box-shadow: 0px 0px 0px 0.5px rgba(50, 50, 93, 0.1),
     0px 2px 5px 0px rgba(50, 50, 93, 0.1), 0px 1px 1.5px 0px rgba(0, 0, 0, 0.07);
   border-radius: 7px;
-  padding: 40px;
+  padding: 38px;
 }
 
 .hidden {

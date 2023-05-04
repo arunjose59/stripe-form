@@ -13,28 +13,31 @@
     <!-- Display a payment form -->
     <form id="payment-form">
       <div class="amountContainer">
-        <label class="formLabel">Amount</label>
-        <span class="amount formLabel" id="currency"></span>
-        <span id="amount" class="formLabel"></span>
+        <div class="formLabel">Amount Due</div>
+        <div>
+          <span class="amount" id="currency"></span>
+          <span id="amount" class="amount"></span>
+        </div>
       </div>
       <label class="formLabel">First Name</label>
       <br />
-      <input
-        class="formInput"
-        type="text"
-        id="firstName"
-        name="firstName"
-        required
-      />
+      <input class="formInput" type="text" id="firstName" name="firstName" />
+      <div
+        hidden="true"
+        id="firstNameValidation"
+        class="inputValidation formLabel"
+      >
+        First Name is mandatory
+      </div>
       <label class="formLabel">Last Name</label>
-      <br />
-      <input
-        class="formInput"
-        type="text"
-        id="lastName"
-        name="lastName"
-        required
-      />
+      <input class="formInput" type="text" id="lastName" name="lastName" />
+      <div
+        hidden="true"
+        id="lastNameValidation"
+        class="inputValidation formLabel"
+      >
+        Last Name is mandatory
+      </div>
       <div id="payment-element">
         <!--Stripe.js injects the Payment Element-->
       </div>
